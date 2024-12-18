@@ -13,6 +13,7 @@ export function pathBuilder(runes: TRune[]): TRunePath {
         for (let i=1; i<runes.length; i++) {
             pathId += `-${runes[i].id}`;
             runes[i].prereq_id = runes[i-1].id;
+            runes[i-1].next_rune_id = runes[i].id;
             pathRunes.push(runes[i]);
         }
         return {
