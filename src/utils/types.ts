@@ -11,9 +11,17 @@ export type TRune = {
     learnable: boolean;
     learned: boolean;
     //id of pre-request rune of this rune, if there is any 
-    prereq_id?: string
+    prereq_rune?: TRune;
     //id of next rune, if there is any
-    next_rune_id?: string
+    next_rune?: TRune
+}
+
+export type TPointUpdate = {
+    /**
+     * communication interface to update rune statusand points
+     */
+    rune: TRune;
+    point_change: number;
 }
 
 export type TRunePath = {
