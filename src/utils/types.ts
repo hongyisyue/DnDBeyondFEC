@@ -27,5 +27,6 @@ export type TPointUpdate = {
 
 export type TRunePath = {
     id: string;
+    title: string;
     runes: TRune[];
 }

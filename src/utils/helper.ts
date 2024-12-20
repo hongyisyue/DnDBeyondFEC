@@ -1,6 +1,6 @@
 import { TRune, TRunePath } from "./types";
 
-export function pathBuilder(runes: TRune[]): TRunePath {
+export function pathBuilder(title: string, runes: TRune[]): TRunePath {
     /**
      * 1. the order of runes matters,
      * the order of the rune path is the order of the passed in array of Runes
@@ -10,7 +10,8 @@ export function pathBuilder(runes: TRune[]): TRunePath {
         //set up the first rune
         let pathId = `p${runes[0].id}`;
         const pathRunes = [runes[0]];
-        
+        runes[0].learnable = true;
+
         //connect the rest of the rune
         for (let i=1; i<runes.length; i++) {
             pathId += `-${runes[i].id}`;
@@ -20,6 +21,7 @@ export function pathBuilder(runes: TRune[]): TRunePath {
         }
 
         return {
+            title: title,
             id: pathId,
             runes: pathRunes
         } as TRunePath
