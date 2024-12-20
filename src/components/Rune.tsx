@@ -1,7 +1,7 @@
 import { MouseEvent, useState } from "react";
 import { TPointUpdate, TRune } from "../utils/types";
 
-function Rune(rune: TRune, onLearn: (change: TPointUpdate) => any) {
+function Rune(rune: TRune, onLearn: (change: TPointUpdate) => void) {
     const [learned, setLearned] = useState(rune.learned);
 
     function handleClick(event: MouseEvent) {
