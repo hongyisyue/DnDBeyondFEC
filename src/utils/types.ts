@@ -7,7 +7,8 @@ export type TRune = {
      * we need 'next_rune_id' for effiency update
      */
     id: string;
-    img: string;
+    img_active: string;
+    img_deactive: string;
     learnable: boolean;
     learned: boolean;
     //pre-request rune of this rune, if there is any 
