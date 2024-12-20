@@ -10,9 +10,9 @@ export type TRune = {
     img: string;
     learnable: boolean;
     learned: boolean;
-    //id of pre-request rune of this rune, if there is any 
+    //pre-request rune of this rune, if there is any 
     prereq_rune?: TRune;
-    //id of next rune, if there is any
+    //next rune, if there is any
     next_rune?: TRune
 }
 
