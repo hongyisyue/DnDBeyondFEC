@@ -7,6 +7,7 @@ export type TRune = {
      * we need 'next_rune_id' for effiency update
      */
     id: string;
+    index: number;
     img_active: string;
     img_deactive: string;
     learnable: boolean;
@@ -14,7 +15,7 @@ export type TRune = {
     //pre-request rune of this rune, if there is any 
     prereq_rune?: TRune;
     //next rune, if there is any
-    next_rune?: TRune
+    next_rune?: TRune;
 }
 
 export type TPointUpdate = {

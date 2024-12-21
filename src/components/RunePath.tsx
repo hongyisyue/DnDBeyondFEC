@@ -1,9 +1,12 @@
-import { TPointUpdate, TRunePath } from "../utils/types";
+import { useState } from "react";
+import { pathBuilder } from "../utils/helper";
+import { TPointUpdate, TRune, TRunePath } from "../utils/types";
 import Rune from "./Rune";
 
-function RunePath(props: { runePath: TRunePath, onPointUpdate: (change: number) => number }) {
+function RunePath(props: { title: string, runes: TRune[], onPointUpdate: (change: number) => number }) {
     const onPointUpdate = props.onPointUpdate;
-    const path = props.runePath
+
+    const [path, setPath] = useState<TRunePath>(pathBuilder(props.title, props.runes));
 
     function hanleLearning(change: TPointUpdate) {
         /**
@@ -16,13 +19,24 @@ function RunePath(props: { runePath: TRunePath, onPointUpdate: (change: number) 
             case -1:
                 //learn a rune
                 if (change.rune.next_rune && remainPoint > 1) {
-                    change.rune.next_rune.learnable = true;
+
+                    const updatedRune = { ...change.rune.next_rune, learnable: true }; // Create a new object
+                    change.rune.next_rune = updatedRune; // Update reference
+                    setPath((currentPath) => {
+                        const newRunes = [...currentPath.runes];
+                        newRunes[updatedRune.index] = updatedRune;
+                        return {
+                            ...currentPath,
+                            runes: newRunes
+                        }
+                    });
                 }
                 break;
             case 1:
                 //unlearn a rune
                 if (change.rune.next_rune) {
-                    change.rune.next_rune.learnable = false;
+                    const updatedRune = { ...change.rune.next_rune, learnable: false };
+                    change.rune.next_rune = updatedRune;
                 }
                 break;
         }
@@ -37,21 +51,21 @@ function RunePath(props: { runePath: TRunePath, onPointUpdate: (change: number) 
                 <div className="col-9">
 
                 </div>
-            </div>
-            {path.runes.map(r => {
-                if (r.next_rune) {
-                    return (
-                        <>
+                {path.runes.map(r => {
+                    if (r.next_rune) {
+                        return (
+                            <>
+                                <Rune key={r.id} rune={r} onLearn={hanleLearning}></Rune>
+                                <div className="connect-bar"></div>
+                            </>
+                        )
+                    } else {
+                        return (
                             <Rune rune={r} onLearn={hanleLearning}></Rune>
-                            <div className="connect-bar"></div>
-                        </>
-                    )
-                } else {
-                    return (
-                        <Rune rune={r} onLearn={hanleLearning}></Rune>
-                    )
-                }
-            })}
+                        )
+                    }
+                })}
+            </div>
         </>
     )
 }

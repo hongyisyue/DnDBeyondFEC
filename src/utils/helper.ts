@@ -11,11 +11,13 @@ export function pathBuilder(title: string, runes: TRune[]): TRunePath {
         let pathId = `p${runes[0].id}`;
         const pathRunes = [runes[0]];
         runes[0].learnable = true;
+        runes[0].index = 0;
 
         //connect the rest of the rune
         for (let i=1; i<runes.length; i++) {
             pathId += `-${runes[i].id}`;
             runes[i].prereq_rune = runes[i-1];
+            runes[i].index = i;
             runes[i-1].next_rune = runes[i];
             pathRunes.push(runes[i]);
         }

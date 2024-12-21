@@ -17,7 +17,7 @@ function Rune(props: {rune: TRune, onLearn: (change: TPointUpdate) => void}) {
                     onLearn({
                         rune: rune,
                         point_change: -1
-                    });
+                    } as TPointUpdate);
                 }
                 break;
             case 2: 
@@ -34,7 +34,7 @@ function Rune(props: {rune: TRune, onLearn: (change: TPointUpdate) => void}) {
                         onLearn({
                             rune: rune,
                             point_change: 1
-                        });
+                        } as TPointUpdate);
                     }
                 }
                 break;

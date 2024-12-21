@@ -27,6 +27,7 @@ const totalPoints: Readonly<number> = 6;
 function App() {
   const deck: TRune = {
     id: '1',
+    index: 0,
     img_active: deck_img_b,
     img_deactive: deck_img_d,
     learnable: false,
@@ -34,6 +35,7 @@ function App() {
   }
   const fork: TRune = {
     id: '2',
+    index: 0,
     img_active: fork_img_b,
     img_deactive: fork_img_d,
     learnable: false,
@@ -41,6 +43,7 @@ function App() {
   }
   const cake: TRune = {
     id: '3',
+    index: 0,
     img_active: cake_img_b,
     img_deactive: cake_img_d,
     learnable: false,
@@ -48,6 +51,7 @@ function App() {
   }
   const crown: TRune = {
     id: '4',
+    index: 0,
     img_active: crown_img_b,
     img_deactive: crown_img_d,
     learnable: false,
@@ -55,6 +59,7 @@ function App() {
   }
   const cruise: TRune = {
     id: '5',
+    index: 0,
     img_active: cruise_img_b,
     img_deactive: cruise_img_d,
     learnable: false,
@@ -62,6 +67,7 @@ function App() {
   }
   const snorkel: TRune = {
     id: '6',
+    index: 0,
     img_active: snorkel_img_b,
     img_deactive: snorkel_img_d,
     learnable: false,
@@ -69,6 +75,7 @@ function App() {
   }
   const thunder: TRune = {
     id: '7',
+    index: 0,
     img_active: thunder_img_b,
     img_deactive: thunder_img_d,
     learnable: false,
@@ -76,21 +83,27 @@ function App() {
   }
   const skeleton: TRune = {
     id: '8',
+    index: 0,
     img_active: skeleton_img_b,
     img_deactive: skeleton_img_d,
     learnable: false,
     learned: false,
   }
-  const path1: TRunePath = pathBuilder('TALENT PATH 1', [deck, fork, cake, crown]);
-  
+
   const [points, setPoints] = useState(totalPoints);
   function onPointUpdate(change: number): number {
-    setPoints(change);
-    return points;
+    setPoints((prevPoints) => prevPoints + change);
+    return points + change;
   }
+
   return (
     <>
-      <RunePath runePath={path1} onPointUpdate={onPointUpdate}></RunePath>
+      <RunePath
+        title='TALENT PATH 1'
+        runes={[deck, fork, cake, crown]}
+        onPointUpdate={onPointUpdate}
+      >
+      </RunePath>
     </>
   )
 }
