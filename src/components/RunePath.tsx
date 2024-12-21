@@ -1,5 +1,4 @@
-import { pathBuilder } from "../utils/helper";
-import { TPointUpdate, TRune, TRunePath } from "../utils/types";
+import { TPointUpdate, TRunePath } from "../utils/types";
 import Rune from "./Rune";
 
 function RunePath(props: { runePath: TRunePath, onPointUpdate: (change: number) => number }) {
