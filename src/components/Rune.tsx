@@ -50,7 +50,7 @@ function Rune(props: props) {
 
     return (
         <>
-            <div className="rune">
+            <div className={`rune ${learned ? "learned" : ""}`}>
                 <img
                     src={learned ? rune.img_active : rune.img_deactive}
                     onClick={(e) => handleClick(e)}

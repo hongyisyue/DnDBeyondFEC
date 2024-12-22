@@ -1,0 +1,17 @@
+.rune {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid gray;
+
+    &.learned {
+        border-color: #6fbeea;
+        /* Blue border when learned */
+        box-shadow: 0 0 5px #6fbeea;
+        /* Optional glowing effect */
+    }
+
+    img {
+        cursor: pointer;
+    }
+}

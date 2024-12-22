@@ -71,7 +71,10 @@ function RunePath(props: props) {
                                     onLearn={hanleLearning}
                                     remainPoints={props.remainPoint}
                                 ></Rune>
-                                <div className="connect-bar" key={`${r.id}-bar`}></div>
+                                <div
+                                    key={`${r.id}-bar`}
+                                    className={`connect-bar ${r.learned ? "learned" : ""}`}
+                                ></div>
                             </>
                         )
                     } else {
