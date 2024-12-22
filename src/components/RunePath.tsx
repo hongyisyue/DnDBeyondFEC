@@ -18,7 +18,7 @@ function RunePath(props: { title: string, runes: TRune[], onPointUpdate: (change
         switch (change.point_change) {
             case -1:
                 //learn a rune
-                if (change.rune.next_rune && remainPoint > 1) {
+                if (change.rune.next_rune && remainPoint > 0) {
 
                     const updatedRune = { ...change.rune.next_rune, learnable: true }; // Create a new object
                     change.rune.next_rune = updatedRune; // Update reference

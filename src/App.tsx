@@ -11,15 +11,15 @@ import cake_img_b from './assets/cake_icon-bright.png'
 import cake_img_d from './assets/cake_icon-dark.png'
 import crown_img_b from './assets/crown_icon-bright.png'
 import crown_img_d from './assets/crown_icon-dark.png'
-import cruise_img_b from './assets/cruise_icon-dark.png'
-import cruise_img_d from './assets/cruise_icon-bright.png'
-import snorkel_img_b from './assets/snorkel_icon-dark.png'
-import snorkel_img_d from './assets/snorkel_icon-bright.png'
-import thunder_img_b from './assets/thunder_icon-dark.png'
-import thunder_img_d from './assets/thunder_icon-bright.png'
-import skeleton_img_b from './assets/skeleton_icon-dark.png'
-import skeleton_img_d from './assets/skeleton_icon-bright.png'
-import { pathBuilder } from './utils/helper'
+
+import cruise_img_d from './assets/cruise_icon-dark.png'
+import cruise_img_b from './assets/cruise_icon-bright.png'
+import snorkel_img_d from './assets/snorkel_icon-dark.png'
+import snorkel_img_b from './assets/snorkel_icon-bright.png'
+import thunder_img_d from './assets/thunder_icon-dark.png'
+import thunder_img_b from './assets/thunder_icon-bright.png'
+import skeleton_img_d from './assets/skeleton_icon-dark.png'
+import skeleton_img_b from './assets/skeleton_icon-bright.png'
 import RunePath from './components/RunePath'
 
 const totalPoints: Readonly<number> = 6;
@@ -98,12 +98,31 @@ function App() {
 
   return (
     <>
-      <RunePath
-        title='TALENT PATH 1'
-        runes={[deck, fork, cake, crown]}
-        onPointUpdate={onPointUpdate}
-      >
-      </RunePath>
+      <div className="row">
+        <div className="col-9">
+          <div className="row">
+            <RunePath
+              title='TALENT PATH 1'
+              runes={[deck, fork, cake, crown]}
+              onPointUpdate={onPointUpdate}
+            >
+            </RunePath>
+
+          </div>
+          <div className="row">
+            <RunePath
+              title='TALENT PATH 2'
+              runes={[cruise, snorkel, thunder, skeleton]}
+              onPointUpdate={onPointUpdate}
+            >
+            </RunePath>
+          </div>
+        </div>
+        <div className="col-3">
+          <div>{`${totalPoints - points} / ${totalPoints}`}</div>
+          <div>Points Spent</div>
+        </div>
+      </div>
     </>
   )
 }
