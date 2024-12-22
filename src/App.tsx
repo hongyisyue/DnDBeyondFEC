@@ -91,9 +91,9 @@ function App() {
   }
 
   const [points, setPoints] = useState(totalPoints);
-  function onPointUpdate(change: number): number {
-    setPoints((prevPoints) => prevPoints + change);
-    return points + change;
+  function onPointUsage(change: number): boolean {
+    setPoints((prevPoints) => (prevPoints + change) <= 0 ? 0 : prevPoints + change);
+    return (points + change) <= 0 ? false : true;
   }
 
   return (
@@ -104,7 +104,8 @@ function App() {
             <RunePath
               title='TALENT PATH 1'
               runes={[deck, fork, cake, crown]}
-              onPointUpdate={onPointUpdate}
+              onPointUsage={onPointUsage}
+              remainPoint={points}
             >
             </RunePath>
 
@@ -113,7 +114,8 @@ function App() {
             <RunePath
               title='TALENT PATH 2'
               runes={[cruise, snorkel, thunder, skeleton]}
-              onPointUpdate={onPointUpdate}
+              onPointUsage={onPointUsage}
+              remainPoint={points}
             >
             </RunePath>
           </div>

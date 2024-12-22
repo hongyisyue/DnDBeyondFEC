@@ -1,8 +1,15 @@
 import { MouseEvent, useState } from "react";
 import { TPointUpdate, TRune } from "../utils/types";
 
-function Rune(props: {rune: TRune, onLearn: (change: TPointUpdate) => void}) {
+interface props {
+    rune: TRune,
+    remainPoints: number,
+    onLearn: (change: TPointUpdate) => void
+}
+
+function Rune(props: props) {
     const rune = props.rune;
+    const remainPoints = props.remainPoints;
     const onLearn = props.onLearn;
 
     const [learned, setLearned] = useState(rune.learned);
@@ -11,7 +18,7 @@ function Rune(props: {rune: TRune, onLearn: (change: TPointUpdate) => void}) {
         switch(event.button) {
             case 0:
                 //left click to learn
-                if (rune.learnable && !rune.learned) {
+                if (rune.learnable && !rune.learned && remainPoints > 0) {
                     setLearned(true);
                     rune.learned = true;
                     onLearn({
@@ -46,7 +53,8 @@ function Rune(props: {rune: TRune, onLearn: (change: TPointUpdate) => void}) {
             <div className="rune">
                 <img
                     src={learned ? rune.img_active : rune.img_deactive}
-                    onClick={(e) => handleClick(e)}    
+                    onClick={(e) => handleClick(e)}
+                    onContextMenu={(e) => handleClick(e)} 
                 />
             </div>
         </>
