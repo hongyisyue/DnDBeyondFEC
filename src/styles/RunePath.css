@@ -1,23 +1,25 @@
-.connect-bar {
-    width: 120px;
-    height: 15px;
-    background: linear-gradient(to bottom, #2b2b2b, #1f1f1f);
-    border: 2px solid #333;
-
-    &.learned {
-        background: linear-gradient(to bottom, #585757, #353434);
-        border: 2px solid #434242;
+.rune-path {
+    &.row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 10px;
     }
-}
 
-.title {
-    font-size: 12px;
-    padding-right: 30px;
-}
-
-.row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 0;
+    .connect-bar {
+        width: 120px;
+        height: 15px;
+        background: linear-gradient(to bottom, #2b2b2b, #1f1f1f);
+        border: 2px solid #333;
+    
+        &.learned {
+            background: linear-gradient(to bottom, #585757, #353434);
+            border: 2px solid #434242;
+        }
+    }
+    
+    .title {
+        font-size: 12px;
+        padding-right: 30px;
+    }
 }
