@@ -94,31 +94,37 @@ function Calculator() {
 
     return (
         <>
-            <div className="row calculator">
-                <div className="col-9">
-                    <div className="row">
-                        <RunePath
-                            title='TALENT PATH 1'
-                            runes={[deck, fork, cake, crown]}
-                            onPointUsage={onPointUsage}
-                            remainPoint={points}
-                        >
-                        </RunePath>
-
-                    </div>
-                    <div className="row">
-                        <RunePath
-                            title='TALENT PATH 2'
-                            runes={[cruise, snorkel, thunder, skeleton]}
-                            onPointUsage={onPointUsage}
-                            remainPoint={points}
-                        >
-                        </RunePath>
-                    </div>
+            <div className="calculator">
+                <div className="row big-title">
+                    TitanStar Legends - Rune Mastery Loadout Talent Calculator 9000
                 </div>
-                <div className="col-3 point-session">
-                    <div>{`${totalPoints - points} / ${totalPoints}`}</div>
-                    <div className='point-spent'>Points Spent</div>
+                <div className="row">
+                    <div className="col-9">
+                        <div className="row">
+                            <RunePath
+                                title='TALENT PATH 1'
+                                runes={[deck, fork, cake, crown]}
+                                onPointUsage={onPointUsage}
+                                remainPoint={points}
+                            >
+                            </RunePath>
+
+                        </div>
+                        <div className="row">
+                            <RunePath
+                                title='TALENT PATH 2'
+                                runes={[cruise, snorkel, thunder, skeleton]}
+                                onPointUsage={onPointUsage}
+                                remainPoint={points}
+                            >
+                            </RunePath>
+                        </div>
+                    </div>
+                    <div className="col-3 point-session">
+                        <div>{`${totalPoints - points} / ${totalPoints}`}</div>
+                        <div className='point-spent'>Points Spent</div>
+                    </div>
+
                 </div>
             </div>
         </>

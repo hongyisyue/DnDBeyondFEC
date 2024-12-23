@@ -55,7 +55,7 @@ function RunePath(props: props) {
     return (
         <>
             <div className="row rune-path">
-                <div className="col-3 title">
+                <div className="col-3 path-title">
                     {path.title}
                 </div>
                 <div className="col-9">

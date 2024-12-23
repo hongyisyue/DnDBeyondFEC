@@ -1,10 +1,26 @@
 .calculator {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     width: 998px;
     height: 373px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-image: url('../assets/talent-calc-bg.png');
+    
+    .big-title {
+        font-size: 23px;
+        font-weight: 500;
+        background-color: #232222;
+        margin-bottom: 70px;
+        margin-top: -90px;
+        width: 95%;
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
     .point-session {
         border: 1px solid #2a2929;

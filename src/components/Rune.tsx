@@ -13,6 +13,7 @@ function Rune(props: props) {
     const onLearn = props.onLearn;
 
     const [learned, setLearned] = useState(rune.learned);
+    const [hover, setHover] = useState(false);
 
     function handleClick(event: MouseEvent) {
         switch(event.button) {
@@ -50,11 +51,13 @@ function Rune(props: props) {
 
     return (
         <>
-            <div className={`rune ${learned ? "learned" : ""}`}>
+            <div className={`rune ${learned ? "learned" : ""} ${hover && rune.learnable && !rune.learned && remainPoints > 0 ? "learned" : ""}`}>
                 <img
-                    src={learned ? rune.img_active : rune.img_deactive}
+                    src={learned || hover ? rune.img_active : rune.img_deactive}
                     onClick={(e) => handleClick(e)}
-                    onContextMenu={(e) => handleClick(e)} 
+                    onContextMenu={(e) => handleClick(e)}
+                    onMouseEnter={(e) => setHover(true)}
+                    onMouseLeave={(e) => setHover(false)}
                 />
             </div>
         </>
