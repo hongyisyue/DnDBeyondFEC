@@ -94,7 +94,7 @@ function Calculator() {
 
     return (
         <>
-            <div className="row bg">
+            <div className="row calculator">
                 <div className="col-9">
                     <div className="row">
                         <RunePath

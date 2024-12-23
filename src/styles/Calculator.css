@@ -1,16 +1,19 @@
-.point-session {
-    border: 1px solid #3b3a3a;
-    background-color: black;
-    padding: 20px;
-    margin-left: 40px;
-
-    .point-spent {
-        color: #6fbeea;
-    }
-}
-
-.bg {
+.calculator {
     width: 998px;
     height: 373px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-image: url('../assets/talent-calc-bg.png');
+
+    .point-session {
+        border: 1px solid #2a2929;
+        background-color: black;
+        padding: 20px;
+        margin-left: 60px;
+
+        .point-spent {
+            color: #6fbeea;
+        }
+    }
 }
