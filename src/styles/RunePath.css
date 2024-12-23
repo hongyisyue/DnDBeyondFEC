@@ -10,6 +10,11 @@
     }
 }
 
+.title {
+    font-size: 12px;
+    padding-right: 30px;
+}
+
 .row {
     display: flex;
     align-items: center;
